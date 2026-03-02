@@ -32,15 +32,15 @@
   - `bmi_level` (저체중/정상/과체중/비만)
   - `tgc_hdl_ratio`, `hemo_lel_ratio`, `creatinine` 등
 
-> 범주형 컬럼 구분 기준
+- **범주형 컬럼 구분 기준**
 #### 연령대 구분 함수
 def age_section(age):
     if age < 30:
         return "30대 미만"
     elif age < 50:
-        return "30~50대"
+        return "30-50대"
     elif age < 70:
-        return "50~70대"
+        return "50-70대"
     else:
         return "70대 이상"
 
