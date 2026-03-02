@@ -32,7 +32,82 @@
   - `bmi_level` (저체중/정상/과체중/비만)
   - `tgc_hdl_ratio`, `hemo_lel_ratio`, `creatinine` 등
 
-> (구간 설정 범위 정의)
+> 범주형 컬럼 구분 기준
+#### 연령대 구분 함수
+def age_section(age):
+    if age < 30:
+        return "30대 미만"
+    elif age < 50:
+        return "30~50대"
+    elif age < 70:
+        return "50~70대"
+    else:
+        return "70대 이상"
+
+#### 체중 상태 구분 함수
+def bmi_level(bmi):
+    if bmi < 18.5:
+        return "저체중"
+    elif bmi < 25:
+        return "정상"
+    elif bmi < 30:
+        return "과체중"
+    else:
+        return "비만"
+
+#### 공복 혈당 범주화 함수
+def fbs_level(fasting_blood_sugar):
+    if fasting_blood_sugar < 100:
+        return "정상"
+    elif fasting_blood_sugar < 126:
+        return "공복혈당장애"
+    else:
+        return "당뇨병"
+
+#### 중성 지방 범주화 함수
+def triglyceride_level(triglyceride):
+    if triglyceride < 150:
+        return "정상"
+    elif triglyceride <= 199:
+        return "주의"
+    elif triglyceride <= 499:
+        return "고중성지방혈증"
+    else:
+        return "췌장염위험"
+
+#### hdl 범주화 함수
+def hdl_criteria(hdl):
+    if hdl <= 40:
+        return "수치 낮음"
+    elif hdl < 60:
+        return "정상"
+    else:
+        return "심혈관보호효과"
+
+#### ldl 범주화 함수(심혈관 질환자는 55mg/dl 미만이어야 함)
+def ldl_criteria(ldl):
+    if ldl < 130:
+        return "정상"
+    elif ldl < 159:
+        return "경계"
+    else:
+        return "높음"
+
+#### cholesterol 정상 범위 판단
+def cholesterol_check(cholesterol):
+    if cholesterol < 200:
+        return "정상"
+    elif cholesterol < 240:
+        return "경계"
+    else:
+        return "높음"
+
+#### creatinine 정상 범위 판단
+def creatinine_check(creatinine):
+    if 0.50 <= creatinine <= 1.4:
+        return "정상"
+    else:
+        return "의사면담필요"
 
 ---
 
